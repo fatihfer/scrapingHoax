@@ -50,7 +50,7 @@ tokens = word_tokenize(text)
 
 # Stopwords
 stop_words_wc = set(stopwords.words('indonesian'))
-stop_words_wc.update(['halaman', 'klik', 'baca', 'juga', 'yang', 'untuk', 'pada', 'dengan', 'selengkapnya', 'sumber', 'akun','narasi','foto', 'referensi', 'facebook', 'salah','berita', 'beredar', 'kategori', 'video', 'klarifikasi'])
+stop_words_wc.update(['halaman', 'klik', 'baca', 'juga', 'yang', 'untuk', 'pada', 'dengan', 'selengkapnya', 'sumber', 'akun','narasi','foto', 'referensi', 'facebook', 'salah','berita', 'beredar', 'kategori', 'video', 'klarifikasi', 'the'])
 
 tokens_wc = [word for word in tokens if word not in stop_words_wc and len(word) > 2]
 cleaned_text = " ".join(tokens_wc)
@@ -72,7 +72,7 @@ title_tokens = word_tokenize(title_text)
 
 # Stopwords untuk judul
 stop_words_title = set(stopwords.words('indonesian'))
-stop_words_title.update(['halaman', 'klik', 'baca', 'juga', 'yang', 'untuk', 'pada', 'dengan', 'selengkapnya', 'sumber', 'akun','narasi','foto', 'referensi', 'salah','berita', 'beredar', 'kategori', 'klarifikasi'])
+stop_words_title.update(['halaman', 'klik', 'baca', 'juga', 'yang', 'untuk', 'pada', 'dengan', 'selengkapnya', 'sumber', 'akun','narasi','foto', 'referensi', 'salah','berita', 'beredar', 'kategori', 'klarifikasi', 'the'])
 
 title_tokens_clean = [word for word in title_tokens if word not in stop_words_title and len(word) > 2]
 title_cleaned_text = " ".join(title_tokens_clean)
@@ -110,7 +110,7 @@ st.pyplot(fig)
 st.header("🔠 15 Kata yang Paling Sering Muncul")
 
 stop_words_freq = set(stopwords.words('indonesian'))
-stop_words_freq.update(['halaman', 'klik', 'baca', 'juga', 'yang', 'untuk', 'pada', 'dengan', 'selengkapnya', 'sumber', 'akun','narasi','foto', 'referensi', 'facebook', 'salah','berita', 'beredar', 'kategori', 'video', 'klarifikasi'])
+stop_words_freq.update(['halaman', 'klik', 'baca', 'juga', 'yang', 'untuk', 'pada', 'dengan', 'selengkapnya', 'sumber', 'akun','narasi','foto', 'referensi', 'facebook', 'salah','berita', 'beredar', 'kategori', 'video', 'klarifikasi', 'the'])
 
 tokens_freq = [word for word in tokens if word not in stop_words_freq and len(word) > 2]
 word_freq = Counter(tokens_freq)
