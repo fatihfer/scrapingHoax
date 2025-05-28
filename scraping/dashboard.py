@@ -12,11 +12,11 @@ import string
 import re
 
 # Unduh resource NLTK
-nltk.download('punkt_tab')
+nltk.download('punkt')
 nltk.download('stopwords')
 
 # Koneksi ke MongoDB
-client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient("mongodb+srv://fatihfernando01:123@cluster0.4kz97zw.mongodb.net/")
 db = client["berita"]
 collection = db["hoax_teridentifikasi"]
 
@@ -59,6 +59,27 @@ cleaned_text = " ".join(tokens_wc)
 wordcloud = WordCloud(width=800, height=400, background_color='white').generate(cleaned_text)
 st.image(wordcloud.to_array(), use_container_width=True)
 
+# ------------------------------
+# 2b. WordCloud dari Judul Berita
+# ------------------------------
+st.header("📝 WordCloud dari Judul Berita")
+
+# Proses cleansing judul
+title_text = " ".join(data['title'].astype(str)).lower()
+title_text = re.sub(r'\d+', '', title_text)
+title_text = title_text.translate(str.maketrans('', '', string.punctuation))
+title_tokens = word_tokenize(title_text)
+
+# Stopwords untuk judul
+stop_words_title = set(stopwords.words('indonesian'))
+stop_words_title.update(['halaman', 'klik', 'baca', 'juga', 'yang', 'untuk', 'pada', 'dengan', 'selengkapnya', 'sumber', 'akun','narasi','foto', 'referensi', 'facebook'])
+
+title_tokens_clean = [word for word in title_tokens if word not in stop_words_title and len(word) > 2]
+title_cleaned_text = " ".join(title_tokens_clean)
+
+# Generate dan tampilkan WordCloud untuk judul
+wordcloud_title = WordCloud(width=800, height=400, background_color='white').generate(title_cleaned_text)
+st.image(wordcloud_title.to_array(), use_container_width=True)
 
 # ------------------------------
 # 3. Grafik Panjang Artikel

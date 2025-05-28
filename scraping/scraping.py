@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from datetime import datetime
 
 # MongoDB setup
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb+srv://fatihfernando01:123@cluster0.4kz97zw.mongodb.net/')
 db = client['berita']
 collection = db['hoax_teridentifikasi']
 
