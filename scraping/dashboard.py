@@ -72,7 +72,7 @@ title_tokens = word_tokenize(title_text)
 
 # Stopwords untuk judul
 stop_words_title = set(stopwords.words('indonesian'))
-stop_words_title.update(['halaman', 'klik', 'baca', 'juga', 'yang', 'untuk', 'pada', 'dengan', 'selengkapnya', 'sumber', 'akun','narasi','foto', 'referensi', 'facebook', 'salah','berita', 'beredar', 'kategori', 'video'])
+stop_words_title.update(['halaman', 'klik', 'baca', 'juga', 'yang', 'untuk', 'pada', 'dengan', 'selengkapnya', 'sumber', 'akun','narasi','foto', 'referensi', 'salah','berita', 'beredar', 'kategori', 'Klarifikasi'])
 
 title_tokens_clean = [word for word in title_tokens if word not in stop_words_title and len(word) > 2]
 title_cleaned_text = " ".join(title_tokens_clean)
